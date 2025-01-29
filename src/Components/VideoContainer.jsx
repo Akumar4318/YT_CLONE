@@ -2,9 +2,11 @@ import { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addYtVideo } from "../Slices/YtVideo";
-import VideoCard from "./VideoCard";
+import VideoCard, { AdVideoCard } from "./VideoCard";
 import { YOUTUBE_VIDEO_API } from "../utils/Contstant";
 import { Link } from "react-router-dom";
+
+
 
 const VideoContainer = () => {
   const dispatch = useDispatch();
@@ -30,6 +32,7 @@ const VideoContainer = () => {
     <div>
       {ytvideo.length > 0 ? (
         <div className="flex flex-wrap">
+        {ytvideo && <AdVideoCard info={ytvideo[0]} />}
           {
             ytvideo.map((item)=>{
               return(

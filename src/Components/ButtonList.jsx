@@ -153,7 +153,7 @@ const ButtonList = () => {
   ];
 
   return (
-    <div className="mx-4 bg-fixed p-4 w-screen flex gap-3 border bg-slate-300/30 overflow-x-auto whitespace-nowrap scrollbar-hide">
+    <div className="mx-4 bg-fixed p-4 w-[98%] flex gap-3 border bg-slate-300/30 overflow-x-auto whitespace-nowrap scrollbar-hide">
       {list.map((item, index) => {
         return <Button key={index} name={item} />;
       })}
