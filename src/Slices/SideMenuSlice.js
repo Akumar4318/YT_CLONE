@@ -6,11 +6,13 @@ const sideMenuSlice=createSlice({
     name:"sidemenu",
     initialState:{
         isMenuOpen:true,
+
     },
     reducers:{
         toggleMenu:(state)=>{
             state.isMenuOpen=!state.isMenuOpen;
-        }
+        },
+       
     }
 
 })

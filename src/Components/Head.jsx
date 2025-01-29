@@ -1,13 +1,16 @@
-import YOUTUBE_URL from "../assets/ytassets/logo.svg";
+import YOUTUBE from "../assets/ytassets/logo.svg";
 import search from "../assets/ytassets/search.svg";
 import User from "../assets/ytassets/user.svg";
 import Bell from "../assets/ytassets/bell.svg";
 import hamburger from "../assets/ytassets/hamburger.svg";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../Slices/SideMenuSlice";
+import { useNavigate } from "react-router-dom";
 
 const Head = () => {
   const dispatch = useDispatch();
+
+  const nav=useNavigate()
 
   return (
     <div className="flex items-center mx-auto gap-5  w-full   justify-between py-4 px-6 bg-white text-white shadow-lg">
@@ -19,7 +22,9 @@ const Head = () => {
       onClick={() => dispatch(toggleMenu())}
       className="cursor-pointer hover:opacity-80"
     />
-    <img src={YOUTUBE_URL} alt="YouTube Logo" className="w-24" />
+    <img src={YOUTUBE} alt="YouTube Logo" className="w-24 cursor-pointer  " onClick={()=>{
+      nav('/')
+    }} />
   </div>
 
   {/* Search Section */}

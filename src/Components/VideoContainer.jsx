@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addYtVideo } from "../Slices/YtVideo";
 import VideoCard from "./VideoCard";
 import { YOUTUBE_VIDEO_API } from "../utils/Contstant";
+import { Link } from "react-router-dom";
 
 const VideoContainer = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const VideoContainer = () => {
       try {
         const response = await fetch(YOUTUBE_VIDEO_API);
         const data = await response.json();
-        console.log(data.items);
+    
         dispatch(addYtVideo(data.items));
       } catch (error) {
         console.log(error);
@@ -32,7 +33,7 @@ const VideoContainer = () => {
           {
             ytvideo.map((item)=>{
               return(
-                <VideoCard info={item} key={item.id}/>
+               <Link to={"/watch?v="+item.id} key={item.id}> <VideoCard info={item} key={item.id}/></Link>
               )
             })
           }
@@ -41,7 +42,7 @@ const VideoContainer = () => {
         <p>No videos found</p>
       )}
 
-      <div>aman</div>
+    
     </div>
   );
 };

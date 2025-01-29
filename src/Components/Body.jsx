@@ -1,12 +1,19 @@
+
 import MainContainer from "./MainContainer"
 import SideBar from "./SideBar"
+import WatchPage from "./WatchPage"
 
 
-const Body = () => {
+const Body = ({children}) => {
+ let browse=children.type.name
   return (
     <div className="flex ">
-        <SideBar/>
-        <MainContainer/>
+
+{
+  browse ==="WatchPage" ? (<><WatchPage/></>):(<>
+    <SideBar/>  {children}</>)
+}
+       
     </div>
   )
 }
